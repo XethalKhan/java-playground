@@ -46,6 +46,7 @@ public class QueueLinkedList<TYPE> {
 		
 		Node<TYPE> tmp = this.front;
 		this.front = this.front.next;
+		tmp.next = null;
 		
 		if(this.front == null) {
 			this.rear = null;
