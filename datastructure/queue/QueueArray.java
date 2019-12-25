@@ -3,7 +3,7 @@ package datastructure.queue;
 public class QueueArray<TYPE> {
 	int front;
 	int rear;
-	int size;
+	public int size;
 	int capacity;
 	TYPE array[];
 	
@@ -35,7 +35,7 @@ public class QueueArray<TYPE> {
 		
 		TYPE item = this.array[this.front];
 		this.front = (this.front + 1) % this.capacity;
-		this.size = this.size - 1;
+		this.size--;
 		
 		return item;
 	}
@@ -45,9 +45,9 @@ public class QueueArray<TYPE> {
 			return false;
 		}
 		
-		this.rear = (this.rear + 1) % 3;
+		this.rear = (this.rear + 1) % this.capacity;
 		this.array[this.rear] = data;
-		this.size--;
+		this.size++;
 		
 		return true;
 	}
@@ -64,5 +64,16 @@ public class QueueArray<TYPE> {
 			return null;
 		}
 		return this.array[this.rear];
+	}
+	
+	public String toString() {
+		String res = "";
+		for(int i = this.front; i < this.front + this.size; i++) {
+			if(i  > this.capacity) {
+				i = i % this.capacity;
+			}
+			res += this.array[i].toString() + " ";
+		}
+		return res;
 	}
 }
