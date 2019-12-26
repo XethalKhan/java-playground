@@ -6,9 +6,13 @@ public class BinaryTreeDemo {
 
 	public static void main(String[] args) {
 		
+		/*
 		BinaryTreeDemo.inorderExample();
 		BinaryTreeDemo.preorderExample();
 		BinaryTreeDemo.postorderExample();
+		*/
+		
+		BinaryTreeDemo.deleteExample();
 		
 	}
 
@@ -64,5 +68,24 @@ public class BinaryTreeDemo {
 		
 		bt.insert(5);
 		System.out.println(bt.printPostorder());
+	}
+	
+	public static void deleteExample(){
+		System.out.println("Delete demo");
+		BinaryTree<Integer> bt = new BinaryTree<Integer>(1);
+	
+		bt.insert(2);
+		
+		bt.insert(3);
+		
+		bt.insert(4);
+		
+		bt.insert(5);
+		System.out.println(bt.printInorder());
+		
+		bt.delete(1);
+		System.out.println(bt.printInorder());
+		
+		//System.out.println(bt.printDeepest());
 	}
 }
